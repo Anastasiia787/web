@@ -1,0 +1,8 @@
+###
+
+GET  http://localhost:8080/managers
+
+###
+
+POST http://localhost:8080/managers
+Content-Type: application/json
