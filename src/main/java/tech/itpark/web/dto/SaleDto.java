@@ -4,12 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class ManagerDto {
+public class SaleDto {
     private long id;
-    private String name;
-    private String department;
-    private long bossId;
+    private long managerId;
+    private List<SalePositionDto> positions;
 }

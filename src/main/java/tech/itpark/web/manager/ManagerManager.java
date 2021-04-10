@@ -44,13 +44,14 @@ public class ManagerManager {
         }
         return update(dto);
     }
+
     public ManagerUpdateDto create(ManagerUpdateDto dto) throws SQLException {
         try (
                 Connection connection = dataSource.getConnection();
                 PreparedStatement statement = connection.prepareStatement("""
-                INSERT INTO managers(name, salary, plan, department, boss_id)
-                VALUES (?, ?, ?, ?, ?)
-                """, Statement.RETURN_GENERATED_KEYS);
+                        INSERT INTO managers(name, salary, plan, department, boss_id)
+                        VALUES (?, ?, ?, ?, ?)
+                        """, Statement.RETURN_GENERATED_KEYS);
         ) {
             int index = 0;
             statement.setString(++index, dto.getName());
@@ -66,11 +67,9 @@ public class ManagerManager {
                 if (generatedKeys.next()) {
                     dto.setId
                 }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-
-        catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
-}
 

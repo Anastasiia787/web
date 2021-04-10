@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class ManagerDto {
-    private long id;
-    private String name;
-    private String department;
-    private long bossId;
+public class SalePositionDto {
+    private long productId;
+    private int price;
+    private int count;
+
 }
